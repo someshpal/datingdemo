@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Date Decision Maker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(45deg, #3498db, #9b59b6, #1abc9c); /* Dynamic gradient background */
+      background-size: 400% 400%; /* Background size for smooth animation */
+      animation: gradientAnimation 15s infinite; /* Animation for gradient transition */
+    }
+
+    #decision-container {
+      text-align: center;
+    }
+
+    #yes-button, #no-button {
+      font-size: 18px;
+      padding: 10px 20px;
+      margin: 10px;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f0f0f0;
+    }
+
+    #cute-image {
+      max-width: 100%;
+      margin-bottom: 20px; /* Add margin below the image */
+    }
+
+    @keyframes gradientAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div id="decision-container">
+  <img id="cute-image" src="images (3).jpg" alt="Cute Image">
+  <p>Do you want to go out on a date with me?</p>
+  <button id="yes-button" onclick="handleYes()">Yes</button>
+  <button id="no-button" onmouseover="handleNo()">No</button>
+</div>
+
+<script>
+  function handleYes() {
+    alert("Hurray! Let's decide where to go.");
+  }
+
+  function handleNo() {
+    const noButton = document.getElementById('no-button');
+    const maxX = window.innerWidth - noButton.clientWidth;
+    const maxY = window.innerHeight - noButton.clientHeight;
+
+    const randomX = Math.floor(Math.random() * maxX);
+    const randomY = Math.floor(Math.random() * maxY);
+
+    noButton.style.position = 'absolute';
+    noButton.style.left = randomX + 'px';
+    noButton.style.top = randomY + 'px';
+  }
+</script>
+
+</body>
+</html>
